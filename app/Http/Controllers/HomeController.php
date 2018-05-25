@@ -41,4 +41,9 @@ class HomeController extends Controller
         return view('tablescontrol/finalizetable');
     }
 
+    public function tableDetail()
+    {
+        return view('tablescontrol/tabledetail');
+    }
+
 }

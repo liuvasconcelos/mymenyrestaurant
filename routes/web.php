@@ -45,6 +45,7 @@ Route::get('/table/discount', 'TablesControl\FinalizeTableController@goBack') ->
 
 Route::get('/table/finish', 'TablesControl\FinalizeTableController@goBack') -> name('finishAccount');
 
+Route::get('/table', 'HomeController@tableDetail') -> name('tableDetail');
 
 
 
