@@ -27,7 +27,7 @@ Route::get('/reservation', 'HomeController@makeReservation') -> name('makeReserv
 
 Route::get('/reservation/see', 'HomeController@seeReservation') -> name('seeReservedTable');
 
-Route::get('/table/finalize', 'HomeController@finalizeTable') -> name('finishTable');
+Route::get('/table/finalize', 'HomeController@finalizeTable')->name('finishTable');
 
 Route::get('/reservation/do', 'Reservation\ReservationRegisterController@reserveTable') -> name('reserve');
 
@@ -45,7 +45,7 @@ Route::get('/table/discount', 'TablesControl\FinalizeTableController@goBack') ->
 
 Route::get('/table/finish', 'TablesControl\FinalizeTableController@goBack') -> name('finishAccount');
 
-Route::get('/table', 'HomeController@tableDetail') -> name('tableDetail');
+Route::get('{id}/table', 'HomeController@tableDetail') -> name('tableDetail');
 
 
 

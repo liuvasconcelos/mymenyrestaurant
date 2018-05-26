@@ -2,23 +2,27 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Detalhes da mesa</div>
+                <div class="card" style="width:100rem; height: 50rem;">
+                    <div class="card-header">Detalhes da mesa {{$idTable}}</div>
+                    <div class="row">
+                        <form class="col-md-8">
+                            <div style="height:10rem;"></div>
+                            <div class="ml-5">{{$tableInformation}}</div>
+                        </form>
 
-                    <div class="card-body">
-                        <div class="form-group row">
+                        <div class="col-md-4">
+                            <div style="height:40rem;"></div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+                                {{Form::open(['route'=>['addItem'], 'method'=>'get'])}}
+                                <button class="btn grey-mint btn-sm margin-bottom-5 margin-top-10" type="submit"
+                                        style="width:20rem;">
+                                    Adicionar item
+                                </button>
+                                {{Form::close()}}
 
-                            <div class="col-md-2"> DETALHES DA CONTA E FORMULÁRIO</div>
-
-                            <div class="form-group row mb-0">
-
-                                <div class="col-md-2 align-content-end">
-                                    <a href="{{route('addItem')}}"  class="btn btn-group-sm">
-                                        Adicionar item
-                                    </a>
-                                </div>
                             </div>
 
                         </div>
