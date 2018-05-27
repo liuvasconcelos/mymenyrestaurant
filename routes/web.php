@@ -27,7 +27,7 @@ Route::get('/reservation', 'HomeController@makeReservation') -> name('makeReserv
 
 Route::get('/reservation/see', 'HomeController@seeReservation') -> name('seeReservedTable');
 
-Route::get('/table/finalize', 'HomeController@finalizeTable')->name('finishTable');
+Route::get('/table/finalize', 'TablesControl\TableDetailController@finalizeTable')->name('finalizeTable');
 
 Route::get('/reservation/do', 'Reservation\ReservationRegisterController@reserveTable') -> name('reserve');
 
@@ -35,7 +35,7 @@ Route::get('/reservation/back', 'Reservation\SeeReservationController@goBack') -
 
 Route::get('/table/additem', 'TablesControl\TableDetailController@addItem') -> name('addItem');
 
-Route::get('/table/itensadded', 'TablesControl\AddItensController@addItem') -> name('addItensAndGoBackToTableControl');
+Route::get('/table/itensadded', 'TablesControl\AddItensController@addOrder') -> name('addItensAndGoBackToTableControl');
 
 Route::get('/table/goback', 'TablesControl\FinalizeTableController@goBack') -> name('dontFinishTableAndGoBack');
 
@@ -46,6 +46,8 @@ Route::get('/table/discount', 'TablesControl\FinalizeTableController@goBack') ->
 Route::get('/table/finish', 'TablesControl\FinalizeTableController@goBack') -> name('finishAccount');
 
 Route::get('{id}/table', 'HomeController@tableDetail') -> name('tableDetail');
+
+Route::post('/table/additens', 'TablesControl\AddItensController@addItem') -> name('addItens');
 
 
 

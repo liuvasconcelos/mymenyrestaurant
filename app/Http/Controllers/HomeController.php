@@ -82,11 +82,6 @@ class HomeController extends Controller
         return view('reservation/seereservations');
     }
 
-    public function finalizeTable()
-    {
-        return view('tablescontrol/finalizetable');
-    }
-
     public function tableDetail($id)
     {
         $tableInformation = $this->loadTableInformation($id);
