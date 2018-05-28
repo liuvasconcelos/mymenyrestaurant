@@ -8,12 +8,12 @@
                 <div class="card" style="width:100rem; height: 50rem;">
                     <div class="card-header">Adicionar itens</div>
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-8 ml-5">
                             <div class="col-md-2">
                                 <a class="row" style="height:3.5rem;">Item:</a>
                                 <a class="row" style="height:3.5rem;">Quantidade:</a>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-6">
                                 {{--<form class="form-horizontal" method="post" action="{{route('addItens')}}" >--}}
                                 {{--{{csrf_field()}}--}}
                                 {{--<div class="row">--}}
@@ -92,7 +92,6 @@
                                 @endif
                                 {{Form::close()}}
                             </div>
-
 
                             <div class="col-md-4">
                                 <div style="height:40rem;"></div>

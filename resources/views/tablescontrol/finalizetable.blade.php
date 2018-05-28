@@ -2,32 +2,40 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Fechamento de conta</div>
+                <div class="card" style="width:100rem; height: 50rem;">
+                    <div class="card-header">Fechamento da mesa</div>
+                    <div class="row">
+                        <form class="col-md-8  ml-5">
+                            <div style="height:5rem;"></div>
+                            <label>
+                                Conta
+                            </label>
+                        </form>
 
-                    <div class="card-body">
-                        <div class="form-group row">
+                        <div class="col-md-2">
+                            <div style="height:33rem;"></div>
+                            <div class="col-md-4">
+                                {{Form::open(['route'=>['addCouvert'], 'method'=>'get'])}}
+                                <button class="btn grey-mint btn-sm margin-bottom-5 margin-top-10" type="submit"
+                                        style="width:25rem;">
+                                    Adicionar couvert
+                                </button>
+                                {{Form::close()}}
 
-                            <div class="col-md-2"> DETALHES DA CONTA</div>
+                                {{Form::open(['route'=>['discountCoupon'], 'method'=>'get'])}}
+                                <button class="btn grey-mint btn-sm margin-bottom-5" type="submit" style="width:25rem;">
+                                    Adicionar cupom de desconto
+                                </button>
+                                {{Form::close()}}
 
-                            <div class="form-group row mb-0">
+                                {{Form::open(['route'=>['finishAccount'], 'method'=>'get'])}}
+                                <button class="btn grey-mint btn-sm" type="submit" style="width:25rem;">
+                                    Finalizar e imprimir
+                                </button>
+                                {{Form::close()}}
 
-                                <div class="col-md-2 align-content-end">
-                                    <a href="{{route('addCouvert')}}"  class="btn btn-group-sm">
-                                        Adicionar couvert
-                                    </a>
-                                    <a href="{{route('discountCoupon')}}"  class="btn btn-group-sm">
-                                        Cupom de desconto
-                                    </a>
-                                    <a href="{{route('finishAccount')}}"  class="btn btn-group-sm">
-                                        Finalizar conta
-                                    </a>
-                                    <a href="{{route('dontFinishTableAndGoBack')}}"  class="btn btn-group-sm">
-                                        Voltar
-                                    </a>
-                                </div>
                             </div>
 
                         </div>
