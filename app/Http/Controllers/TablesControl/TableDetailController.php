@@ -10,21 +10,19 @@ use App\Http\Controllers\Controller;
 
 class TableDetailController extends Controller
 {
-    public $productsAdded;
     public function index()
     {
         return view('tablescontrol\tabledetail');
     }
 
-    public function addItem()
+    public function addItem($id)
     {
         $drinks = Product::where('type', 'bebida')->get();
         $dishes = Dish::where('status', 1)->get();
         $menus  = Menu::where('status', 1)->get();
 
-
         return view('tablescontrol/additem')->with(['listOfDrinks'=> $drinks, 'listOfDishes'=> $dishes,
-            'listOfMenus'=> $menus, 'productsAdded'=>$this->productsAdded]);
+            'listOfMenus'=> $menus, 'idTable'=>$id]);
     }
 
     public function finalizeTable()

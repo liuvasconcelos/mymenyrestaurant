@@ -43,7 +43,7 @@
                                 </button>
                                 {{Form::close()}}
 
-                                {{Form::open(['route'=>['addItem'], 'method'=>'get'])}}
+                                {{Form::open(['route'=>['addItem', $idTable], 'method'=>'get'])}}
                                 <button class="btn grey-mint btn-sm" type="submit" style="width:20rem;">
                                     Adicionar item
                                 </button>

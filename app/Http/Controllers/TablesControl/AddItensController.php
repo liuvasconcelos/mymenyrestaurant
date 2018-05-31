@@ -2,34 +2,39 @@
 
 namespace App\Http\Controllers\TablesControl;
 
+use App\Models\Product;
+use App\Models\Table;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 
 class AddItensController extends Controller
 {
-    public $productsAdded;
     public function index(){
         return view('tablescontrol\additem');
     }
 
-    private  $tiago;
-    public function __construct(TableDetailController $tableDetailController)
+    public function addItem(Request $request, $id)
     {
-        $this->tiago = $tableDetailController;
+        $quantitySelected = $request->quantity;
+        $itemSelected = $request->drink;
+        $drinkModel = Product::where('id_product', $itemSelected)->first();
+        $valueOfDrink = ($drinkModel->value)*($quantitySelected);
+
+
+        $tableInformation = $this->loadTableInformation($id);
+
+        return view('tablescontrol/tabledetail')->with(['idTable'=> $id, 'tableInformation'=> $tableInformation]);
+
     }
 
-    public function addItem(Request $request)
-    {
-       // dd($request->all());
-        $quantitySelected = $request->quantity;
-        $itemSelected = $request->itemSelected;
+    private function loadTableInformation($id) {
+        $table =  Table::where('id_table', $id)->first();
+        $status = $table->status;
 
-        $teste = [$this->tiago->productsAdded.$itemSelected." ".$quantitySelected];
+        $info = "Lista de pedidos da mesa:";
 
-       return redirect()->back()->withErrors($teste);
-
-//        return redirect()->with(['productsAdded'=> $productsAdded]);
+        return $info;
     }
 
     public function addOrder()

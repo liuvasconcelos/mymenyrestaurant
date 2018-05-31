@@ -33,7 +33,7 @@ Route::get('/reservation/do', 'Reservation\ReservationRegisterController@reserve
 
 Route::get('/reservation/back', 'Reservation\SeeReservationController@goBack') -> name('goBackToHomeAfterSeeReservation');
 
-Route::get('/table/additem', 'TablesControl\TableDetailController@addItem') -> name('addItem');
+Route::get('{id}/table/additem', 'TablesControl\TableDetailController@addItem') -> name('addItem');
 
 Route::get('/table/itensadded', 'TablesControl\AddItensController@addOrder') -> name('addItensAndGoBackToTableControl');
 
@@ -47,7 +47,7 @@ Route::get('/table/finish', 'TablesControl\FinalizeTableController@goBack') -> n
 
 Route::get('{id}/table', 'HomeController@tableDetail') -> name('tableDetail');
 
-Route::post('/table/additens', 'TablesControl\AddItensController@addItem') -> name('addItens');
+Route::post('{id}/table/additens', 'TablesControl\AddItensController@addItem') -> name('addItens');
 
 
 

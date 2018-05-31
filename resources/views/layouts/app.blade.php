@@ -13,6 +13,25 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <script src="{{ asset('plugins/respond.min.js') }}"></script>
+    <script src="{{ asset('plugins/excanvas.min.js') }}"></script>
+    <script src="{{ asset('plugins/ie8.fix.min.js') }}"></script>
+    <script src="{{ asset('plugins/jquery.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('plugins/js.cookie.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('plugins/jquery.blockui.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('plugins/jquery-repeater/jquery.repeater.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('scripts/app.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('scripts/form-repeater.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('scripts/components-date-time-pickers.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('scripts/layout.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('scripts/demo.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('scripts/quick-sidebar.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('scripts/quick-nav.min.js') }}" type="text/javascript"></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
@@ -40,6 +59,7 @@
 {{Html::style('css/themes/default.min.css')}}
 {{Html::style('css/custom.min.css')}}
 <!-- END THEME LAYOUT STYLES -->
+
 
 </head>
 <body>
