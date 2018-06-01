@@ -36,8 +36,8 @@ class TableDetailController extends Controller
         return view('tablescontrol/additemmenu')->with(['listOfMenus'=> $menus, 'idTable'=>$id]);
     }
 
-    public function finalizeTable()
+    public function finalizeTable($idTable, $TableInfo)
     {
-        return view('tablescontrol/finalizetable');
+        return view('tablescontrol/finalizetable')->with(['tableId'=> $idTable, 'tableInfo'=>$TableInfo]);
     }
 }

@@ -35,7 +35,7 @@
                             <div style="height:30rem;"></div>
                             <div class="col-md-2"></div>
                             <div class="col-md-4">
-                                {{Form::open(['route'=>['finalizeTable'], 'method'=>'get'])}}
+                                {{Form::open(['route'=>['finalizeTable', $idTable, $tableInformation], 'method'=>'get'])}}
                                 <button class="btn grey-mint btn-sm margin-bottom-5 margin-top-10" type="submit"
                                         style="width:20rem;">
                                     Finalizar mesa
