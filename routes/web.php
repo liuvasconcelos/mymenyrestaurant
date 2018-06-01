@@ -33,7 +33,11 @@ Route::get('/reservation/do', 'Reservation\ReservationRegisterController@reserve
 
 Route::get('/reservation/back', 'Reservation\SeeReservationController@goBack') -> name('goBackToHomeAfterSeeReservation');
 
-Route::get('{id}/table/additem', 'TablesControl\TableDetailController@addItem') -> name('addItem');
+Route::get('{id}/table/additemdrink', 'TablesControl\TableDetailController@addItemDrink') -> name('addItemDrink');
+
+Route::get('{id}/table/additemdish', 'TablesControl\TableDetailController@addItemDish') -> name('addItemDish');
+
+Route::get('{id}/table/additemmenu', 'TablesControl\TableDetailController@addItemMenu') -> name('addItemMenu');
 
 Route::get('/table/itensadded', 'TablesControl\AddItensController@addOrder') -> name('addItensAndGoBackToTableControl');
 
@@ -47,7 +51,13 @@ Route::get('/table/finish', 'TablesControl\FinalizeTableController@goBack') -> n
 
 Route::get('{id}/table', 'HomeController@tableDetail') -> name('tableDetail');
 
-Route::post('{id}/table/additens', 'TablesControl\AddItensController@addItem') -> name('addItens');
+Route::post('{id}/table/additensdrink', 'TablesControl\AddItensController@addItemDrink') -> name('addItensDrink');
+
+Route::post('{id}/table/additensdish', 'TablesControl\AddItensController@addItemDish') -> name('addItensDish');
+
+Route::post('{id}/table/additensmenu', 'TablesControl\AddItensController@addItemMenu') -> name('addItensMenu');
+
+
 
 
 

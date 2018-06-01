@@ -9,19 +9,19 @@
                     <div class="row">
                         <div class="col-md-8 ml-5">
                             <div class="col-md-6 mt-5">
-                                <a class="row" style="height:3.5rem;">Bebida:</a>
+                                <a class="row" style="height:3.5rem;">Menu:</a>
                                 <a class="row" style="height:3.5rem;">Quantidade:</a>
                             </div>
 
                             <div class="col-md-6 mt-5">
-                                <form class="form-horizontal" method="post" action="{{route('addItens', $idTable)}}">
+                                <form class="form-horizontal" method="post" action="{{route('addItensMenu', $idTable)}}">
                                     {{csrf_field()}}
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="col-md-3">
-                                                    {{Form::select('drink',
-                                                    $listOfDrinks->pluck('name','id_product'),null,
+                                                    {{Form::select('menu',
+                                                    $listOfMenus->pluck('id_menu','id_menu'),null,
                                                     ['class' =>'form-control bs-select-hidden','placeholder'=> '-----------',
                                                     'style' => 'width: 300px; height: 33px;', 'required'])}}
                                                     <input name="quantity" style="width: 300px; height: 33px;">

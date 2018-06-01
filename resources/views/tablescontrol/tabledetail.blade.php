@@ -9,7 +9,6 @@
                     <div class="row">
                         <form class="col-md-8  ml-5">
                             <div style="height:5rem;"></div>
-                            {{--<div class="ml-5">{{$tableInformation}}</div>--}}
                             <div class="col-md-4">
                                 <a class="row" style="height:3.5rem;">Garçom:</a>
                                 <a class="row" style="height:3.5rem;">Quantidade de pessoas:</a>
@@ -27,13 +26,13 @@
                                 </div>
 
                                 <label>
-                                Detalhes da mesa
+                                    {{$tableInformation}}
                                 </label>
                             </div>
                         </form>
 
                         <div class="col-md-2">
-                            <div style="height:35rem;"></div>
+                            <div style="height:30rem;"></div>
                             <div class="col-md-2"></div>
                             <div class="col-md-4">
                                 {{Form::open(['route'=>['finalizeTable'], 'method'=>'get'])}}
@@ -43,9 +42,19 @@
                                 </button>
                                 {{Form::close()}}
 
-                                {{Form::open(['route'=>['addItem', $idTable], 'method'=>'get'])}}
+                                {{Form::open(['route'=>['addItemDrink', $idTable], 'method'=>'get'])}}
                                 <button class="btn grey-mint btn-sm" type="submit" style="width:20rem;">
-                                    Adicionar item
+                                    Adicionar Bebidas
+                                </button>
+                                {{Form::close()}}
+                                {{Form::open(['route'=>['addItemDish', $idTable], 'method'=>'get'])}}
+                                <button class="btn grey-mint btn-sm" type="submit" style="width:20rem;">
+                                    Adicionar Pratos
+                                </button>
+                                {{Form::close()}}
+                                {{Form::open(['route'=>['addItemMenu', $idTable], 'method'=>'get'])}}
+                                <button class="btn grey-mint btn-sm" type="submit" style="width:20rem;">
+                                    Adicionar Menus
                                 </button>
                                 {{Form::close()}}
                             </div>
