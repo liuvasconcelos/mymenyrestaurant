@@ -59,6 +59,11 @@ Route::post('{id}/table/additensdish', 'TablesControl\AddItensController@addItem
 
 Route::post('{id}/table/additensmenu', 'TablesControl\AddItensController@addItemMenu') -> name('addItensMenu');
 
+Route::get('{id}/table/couvertadd', 'TablesControl\CouvertController@addCouvert') -> name('couvertAdd');
+
+
+
+
 
 
 

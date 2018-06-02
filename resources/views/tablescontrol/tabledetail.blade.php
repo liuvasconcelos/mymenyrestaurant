@@ -53,7 +53,7 @@
                                 </button>
                                 {{Form::close()}}
                                 {{Form::open(['route'=>['addItemDish', $idTable], 'method'=>'get'])}}
-                                <button class="btn grey-mint btn-sm" type="submit" style="width:20rem;">
+                                <button class="btn grey-mint btn-sm margin-bottom-5" type="submit" style="width:20rem;">
                                     Adicionar Pratos
                                 </button>
                                 {{Form::close()}}

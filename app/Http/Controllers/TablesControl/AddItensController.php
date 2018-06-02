@@ -10,6 +10,7 @@ use App\Models\OrderDrink;
 use App\Models\OrderMenu;
 use App\Models\Product;
 use App\Models\Table;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

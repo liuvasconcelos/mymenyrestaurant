@@ -10,7 +10,7 @@
                         <form class="col-md-8  ml-5">
                             <div style="height:5rem;"></div>
                             <label>
-                                COMANDA
+                                {{$info}}
                             </label>
                         </form>
 
@@ -30,7 +30,7 @@
                                 </button>
                                 {{Form::close()}}
 
-                                {{Form::open(['route'=>['finishAccount', $tableId], 'method'=>'get'])}}
+                                {{Form::open(['route'=>['finishAccount', $info], 'method'=>'get'])}}
                                 <button class="btn grey-mint btn-sm" type="submit" style="width:25rem;">
                                     Finalizar e imprimir
                                 </button>

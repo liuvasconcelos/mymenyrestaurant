@@ -44,6 +44,13 @@ class HomeController extends Controller
 
     public function index()
     {
+        $tables = Table::select()->first();
+
+        if($tables == null) {
+            for ($i = 1; $i <= 11; $i++){
+                Table::create([ 'status' => 0]);
+            }
+        }
 
         $tablesMap = array ($this->tableStatus1, $this->tableStatus2, $this->tableStatus3, $this->tableStatus4,
                                     $this->tableStatus5, $this->tableStatus6, $this->tableStatus7, $this->tableStatus8,
