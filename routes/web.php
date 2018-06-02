@@ -27,11 +27,13 @@ Route::get('/reservation', 'HomeController@makeReservation') -> name('makeReserv
 
 Route::get('/reservation/see', 'HomeController@seeReservation') -> name('seeReservedTable');
 
-Route::get('{id}/{a}/table/finalize', 'TablesControl\TableDetailController@finalizeTable')->name('finalizeTable');
+Route::post('{id}/table/finalize', 'TablesControl\TableDetailController@finalizeTable')->name('finalizeTable');
 
-Route::get('/reservation/do', 'Reservation\ReservationRegisterController@reserveTable') -> name('reserve');
+Route::post('/reservation/do', 'Reservation\ReservationRegisterController@reserveTable') -> name('reserve');
 
 Route::get('/reservation/back', 'Reservation\SeeReservationController@goBack') -> name('goBackToHomeAfterSeeReservation');
+
+Route::get('{id}/reservation/cancelreservation', 'Reservation\SeeReservationController@cancelReservation') -> name('cancelReservation');
 
 Route::get('{id}/table/additemdrink', 'TablesControl\TableDetailController@addItemDrink') -> name('addItemDrink');
 

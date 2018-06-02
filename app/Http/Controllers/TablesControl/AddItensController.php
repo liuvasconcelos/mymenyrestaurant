@@ -16,6 +16,7 @@ use App\Http\Controllers\Controller;
 
 class AddItensController extends Controller
 {
+
     public function index(){
         return view('tablescontrol\additem');
     }
@@ -25,6 +26,7 @@ class AddItensController extends Controller
         $quantitySelected = $request->quantity;
 
         $order = Order::where('table_number', $idTable)->first();
+        $listOfUsers = User::select()->get();
 
         if($order==null) {
             Order::create(['table_number' => $idTable,
@@ -44,7 +46,8 @@ class AddItensController extends Controller
 
         $tableInformation = $this->loadTableInformation($order);
 
-        return view('tablescontrol/tabledetail')->with(['idTable'=> $idTable, 'tableInformation'=> $tableInformation]);
+        return view('tablescontrol/tabledetail')->with(['idTable'=> $idTable, 'tableInformation'=> $tableInformation,
+            'listOfUsers' => $listOfUsers]);
 
     }
 
@@ -53,6 +56,7 @@ class AddItensController extends Controller
         $quantitySelected = $request->quantity;
 
         $order = Order::where('table_number', $idTable)->first();
+        $listOfUsers = User::select()->get();
 
         if($order==null) {
             Order::create(['table_number' => $idTable,
@@ -72,7 +76,8 @@ class AddItensController extends Controller
 
         $tableInformation = $this->loadTableInformation($order);
 
-        return view('tablescontrol/tabledetail')->with(['idTable'=> $idTable, 'tableInformation'=> $tableInformation]);
+        return view('tablescontrol/tabledetail')->with(['idTable'=> $idTable, 'tableInformation'=> $tableInformation,
+            'listOfUsers' => $listOfUsers]);
 
     }
 
@@ -81,6 +86,7 @@ class AddItensController extends Controller
         $quantitySelected = $request->quantity;
 
         $order = Order::where('table_number', $idTable)->first();
+        $listOfUsers = User::select()->get();
 
         if($order==null) {
             Order::create(['table_number' => $idTable,
@@ -100,7 +106,8 @@ class AddItensController extends Controller
 
         $tableInformation = $this->loadTableInformation($order);
 
-        return view('tablescontrol/tabledetail')->with(['idTable'=> $idTable, 'tableInformation'=> $tableInformation]);
+        return view('tablescontrol/tabledetail')->with(['idTable'=> $idTable, 'tableInformation'=> $tableInformation,
+            'listOfUsers' => $listOfUsers]);
 
     }
 

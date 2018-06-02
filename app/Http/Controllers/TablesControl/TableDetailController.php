@@ -4,6 +4,7 @@ namespace App\Http\Controllers\TablesControl;
 
 use App\Models\Dish;
 use App\Models\Menu;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -36,8 +37,11 @@ class TableDetailController extends Controller
         return view('tablescontrol/additemmenu')->with(['listOfMenus'=> $menus, 'idTable'=>$id]);
     }
 
-    public function finalizeTable($idTable, $TableInfo)
+    public function finalizeTable(Request $request, $idTable)
     {
-        return view('tablescontrol/finalizetable')->with(['tableId'=> $idTable, 'tableInfo'=>$TableInfo]);
+        Order::where('table_number', $idTable)->update(['id_waiter' => $request->waiter,
+            'quantity_of_clients' => $request->quantity]);
+
+        return view('tablescontrol/finalizetable')->with(['tableId'=> $idTable]);
     }
 }

@@ -74,12 +74,6 @@
                                     Efetuar Reserva
                                 </button>
                                 {{Form::close()}}
-
-                                {{Form::open(['route'=>['seeReservedTable'], 'method'=>'get'])}}
-                                <button class="btn grey-mint btn-sm" type="submit" style="width:20rem;">
-                                    Ver Reservas
-                                </button>
-                                {{Form::close()}}
                             </div>
 
                         </div>

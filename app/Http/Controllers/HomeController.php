@@ -9,7 +9,9 @@ use App\Models\OrderDish;
 use App\Models\OrderDrink;
 use App\Models\OrderMenu;
 use App\Models\Product;
+use App\Models\Reservation;
 use App\Models\Table;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -81,7 +83,8 @@ class HomeController extends Controller
 
     public function makeReservation()
     {
-        return view('reservation/makeareservation');
+        $availableTable = Table::where('status', 0)->get();
+        return view('reservation/makeareservation')->with(['listOfAvailableTable'=> $availableTable]);
     }
 
     public function seeReservation()
@@ -91,8 +94,34 @@ class HomeController extends Controller
 
     public function tableDetail($id)
     {
-        $tableInformation = $this->loadTableInformation($id);
-        return view('tablescontrol/tabledetail')->with(['idTable'=> $id, 'tableInformation'=> $tableInformation]);
+        $table = Table::where('id_table', $id)->first();
+        $listOfUsers = User::select()->get();
+
+        if($table->status == 2) {
+            $reserveInformation = $this->loadReserveInformation($id);
+            return view('reservation/seereservations')->with(['idTable'=> $id, 'tableInformation'=> $reserveInformation]);
+        } else if($table->status == 1){
+            $tableInformation = $this->loadTableInformation($id);
+            return view('tablescontrol/tabledetail')->with(['idTable'=> $id, 'tableInformation'=> $tableInformation,
+                'listOfUsers' => $listOfUsers]);
+        } else {
+            return view('tablescontrol/tabledetail')->with(['idTable'=> $id, 'tableInformation'=> "",
+                'listOfUsers' => $listOfUsers]);
+        }
+
+    }
+
+    private function loadReserveInformation($idTable) {
+        $reservation = Reservation::where('id_table', $idTable)->where('status', 1)->first();
+        $info = 'DETALHES DA RESERVA: ';
+
+        $info = $info."Nome do Cliente: ".$reservation->cliente_name." ".
+            "Telefone: ".$reservation->client_phone." ".
+            "Quantidade de pessoas: ".$reservation->quantity_of_clients." ".
+            "Hora da reserva: ".$reservation->reservation_time." ".
+            "---- Reservado às: ".$reservation->created_at;
+        
+        return $info;
     }
 
     private function loadTableInformation($id) {
