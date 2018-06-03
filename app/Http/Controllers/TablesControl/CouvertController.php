@@ -45,25 +45,25 @@ class CouvertController extends Controller
             $drink = Product::where('id_product', $value->id_drink_added)->first();
             $valueToUpdate = $valueToUpdate + $drink->value;
 
-            $info = $info." ".$drink->name." R$".$drink->value;
+            $info = $info."<p> ".$drink->name." R$".$drink->value."</p>";
         }
         foreach ($listOfDishes as $key=>$value) {
             $dish = Dish::where('id_dish', $value->id_dish_added)->first();
             $valueToUpdate = $valueToUpdate + $dish->value;
 
-            $info = $info." ".$dish->name." R$".$dish->value;
+            $info = $info."<p> ".$dish->name." R$".$dish->value."</p>";
         }
         foreach ($listOfMenus as $key=>$value) {
             $menu = Menu::where('id_menu', $value->id_menu_added)->first();
             $valueToUpdate = $valueToUpdate + 35;
 
-            $info = $info." "."Menu ".$menu->id_menu." R$ 35.0";
+            $info = $info."<p> "."Menu ".$menu->id_menu." R$ 35.0"."</p>";
         }
 
         $valueToUpdate = $valueToUpdate + $couvertValue;
 
-        $info = $info." -------COUVERT: ".$couvertValue;
-        $info = $info." -------R$: ".$valueToUpdate;
+        $info = $info."<p> -------COUVERT: ".$couvertValue."</p>";
+        $info = $info."<p> TOTAL -------R$: ".$valueToUpdate."</p>";
 
         return $info;
     }

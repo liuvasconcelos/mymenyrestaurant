@@ -33,7 +33,7 @@
                                 </div>
 
                                 <label>
-                                    {{$tableInformation}}
+                                    {!! $tableInformation !!}
                                 </label>
                             </div>
 

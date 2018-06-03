@@ -31,7 +31,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-6 col-md-offset-1">
-                                            <button type="submit" class="btn btn-primary">
+                                            <button type="submit" class="btn grey-mint" style="width:20rem;">
                                                 Adicionar
                                             </button>
                                         </div>

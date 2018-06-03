@@ -10,7 +10,7 @@
                         <form class="col-md-8  ml-5">
                             <div style="height:5rem;"></div>
                             <label>
-                                {{$info}}
+                                {!! $info !!}
                             </label>
                         </form>
 

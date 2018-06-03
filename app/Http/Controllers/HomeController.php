@@ -122,11 +122,11 @@ class HomeController extends Controller
         $reservation = Reservation::where('id_table', $idTable)->where('status', 1)->first();
         $info = 'DETALHES DA RESERVA: ';
 
-        $info = $info."Nome do Cliente: ".$reservation->cliente_name." ".
-            "Telefone: ".$reservation->client_phone." ".
-            "Quantidade de pessoas: ".$reservation->quantity_of_clients." ".
-            "Hora da reserva: ".$reservation->reservation_time." ".
-            "---- Reservado às: ".$reservation->created_at;
+        $info = $info."<p>Nome do Cliente: ".$reservation->client_name." </p>".
+            "<p>Telefone: ".$reservation->client_phone." </p>".
+            "<p>Quantidade de pessoas: ".$reservation->quantity_of_clients." </p>".
+            "<p>Hora da reserva: ".$reservation->reservation_time." </p>".
+            "<p>---- Reservado às: ".$reservation->created_at." </p>";
         
         return $info;
     }
@@ -147,22 +147,22 @@ class HomeController extends Controller
             $drink = Product::where('id_product', $value->id_drink_added)->first();
             $valueToUpdate = $valueToUpdate + $drink->value;
 
-            $info = $info." ".$drink->name." R$".$drink->value;
+            $info = $info."<p> ".$drink->name." R$".$drink->value."</p>";
         }
         foreach ($listOfDishes as $key=>$value) {
             $dish = Dish::where('id_dish', $value->id_dish_added)->first();
             $valueToUpdate = $valueToUpdate + $dish->value;
 
-            $info = $info." ".$dish->name." R$".$dish->value;
+            $info = $info."<p> ".$dish->name." R$".$dish->value."</p>";
         }
         foreach ($listOfMenus as $key=>$value) {
             $menu = Menu::where('id_menu', $value->id_menu_added)->first();
             $valueToUpdate = $valueToUpdate + 35;
 
-            $info = $info." "."Menu ".$menu->id_menu." R$ 35.0";
+            $info = $info."<p> "."Menu ".$menu->id_menu." R$ 35.0"."</p>";
         }
 
-        $info = $info." -------R$: ".$valueToUpdate;
+        $info = $info."<p> -------R$: ".$valueToUpdate."</p>";
 
         return $info;
     }
