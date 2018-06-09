@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\TablesControl;
 
+use App\Http\Controllers\TableStatusAbstractController;
+use App\Models\Table;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class FinalizeTableController extends Controller
+class FinalizeTableController extends TableStatusAbstractController
 {
     public function index()
     {
@@ -23,10 +25,10 @@ class FinalizeTableController extends Controller
         return view('home');
     }
 
-    public function finishAccount($info)
+    public function finishAccount($tableId)
     {
-        dd($info);
-        return view('home');
+        Table::where('id_table', $tableId)->update(['status' => 0]);
+        return $this->updateTables();
     }
 
 }

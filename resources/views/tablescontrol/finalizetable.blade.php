@@ -30,7 +30,7 @@
                                 </button>
                                 {{Form::close()}}
 
-                                {{Form::open(['route'=>['finishAccount', $info], 'method'=>'get'])}}
+                                {{Form::open(['route'=>['finishAccount', $tableId], 'method'=>'get'])}}
                                 <button class="btn grey-mint btn-sm" type="submit" style="width:25rem;">
                                     Finalizar e imprimir
                                 </button>

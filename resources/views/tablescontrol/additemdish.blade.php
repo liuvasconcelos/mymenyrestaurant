@@ -6,6 +6,7 @@
             <div class="col-md-8">
                 <div class="card" style="width:100rem; height: 50rem;">
                     <div class="card-header">Adicionar itens na mesa {{$idTable}}</div>
+
                     <div class="row">
                         <div class="col-md-8 ml-5">
                             <div class="col-md-6 mt-5">
@@ -14,7 +15,7 @@
                             </div>
 
                             <div class="col-md-6 mt-5">
-                                <form class="form-horizontal" method="post" action="{{route('addItensDish', $idTable)}}">
+                                <form class="form-horizontal" method="post" action="{{route('addProductToOrder', $idTable)}}">
                                     {{csrf_field()}}
                                     <div class="row">
                                         <div class="col-md-12">
@@ -38,9 +39,9 @@
                                     </div>
                                 </form>
                             </div>
-
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

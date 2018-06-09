@@ -12,7 +12,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class TableDetailController extends Controller
+class TableDetailController extends TableAbstractController
 {
     public function index()
     {
@@ -56,35 +56,8 @@ class TableDetailController extends Controller
 
     private function loadTableInformation($id) {
         $order = Order::where('table_number', $id)->first();
-        $valueToUpdate = $order->value;
-        $info = "Lista de pedidos da mesa:";
 
-
-        $listOfDrinks = OrderDrink::where('id_order', $order->id_order)->get();
-        $listOfDishes = OrderDish::where('id_order', $order->id_order)->get();
-        $listOfMenus  = OrderMenu::where('id_order', $order->id_order)->get();
-
-
-        foreach ($listOfDrinks as $key=>$value) {
-            $drink = Product::where('id_product', $value->id_drink_added)->first();
-            $valueToUpdate = $valueToUpdate + $drink->value;
-
-            $info = $info."<p> ".$drink->name." R$".$drink->value."</p>";
-        }
-        foreach ($listOfDishes as $key=>$value) {
-            $dish = Dish::where('id_dish', $value->id_dish_added)->first();
-            $valueToUpdate = $valueToUpdate + $dish->value;
-
-            $info = $info."<p> ".$dish->name." R$".$dish->value."</p>";
-        }
-        foreach ($listOfMenus as $key=>$value) {
-            $menu = Menu::where('id_menu', $value->id_menu_added)->first();
-            $valueToUpdate = $valueToUpdate + 35;
-
-            $info = $info."<p> "."Menu ".$menu->id_menu." R$ 35.0"."</p>";
-        }
-
-        $info = $info."<p>TOTAL -------R$: ".$valueToUpdate."</p>";
+        $info = $this->loadOrderInfo($order);
 
         return $info;
     }

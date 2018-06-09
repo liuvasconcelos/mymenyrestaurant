@@ -53,11 +53,7 @@ Route::get('{id}/table/finish', 'TablesControl\FinalizeTableController@finishAcc
 
 Route::get('{id}/table', 'HomeController@tableDetail') -> name('tableDetail');
 
-Route::post('{id}/table/additensdrink', 'TablesControl\AddItensController@addItemDrink') -> name('addItensDrink');
-
-Route::post('{id}/table/additensdish', 'TablesControl\AddItensController@addItemDish') -> name('addItensDish');
-
-Route::post('{id}/table/additensmenu', 'TablesControl\AddItensController@addItemMenu') -> name('addItensMenu');
+Route::post('{id}/table/additens', 'TablesControl\AddItensController@addProductToOrder') -> name('addProductToOrder');
 
 Route::get('{id}/table/couvertadd', 'TablesControl\CouvertController@addCouvert') -> name('couvertAdd');
 

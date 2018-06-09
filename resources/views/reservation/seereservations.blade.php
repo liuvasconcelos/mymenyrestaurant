@@ -20,7 +20,7 @@
                                 {{Form::open(['route'=>['cancelReservation', $idTable], 'method'=>'get'])}}
                                 <button class="btn grey-mint btn-sm margin-bottom-5 margin-top-10" type="submit"
                                         style="width:25rem;">
-                                    Concelar reserva
+                                    Cancelar reserva
                                 </button>
                                 {{Form::close()}}
                                 {{Form::open(['route'=>['goBackToHomeAfterSeeReservation'], 'method'=>'get'])}}

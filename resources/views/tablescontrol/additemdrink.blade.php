@@ -14,7 +14,7 @@
                             </div>
 
                             <div class="col-md-6 mt-5">
-                                <form class="form-horizontal" method="post" action="{{route('addItensDrink', $idTable)}}">
+                                <form class="form-horizontal" method="post" action="{{route('addProductToOrder', $idTable)}}">
                                     {{csrf_field()}}
                                     <div class="row">
                                         <div class="col-md-12">
