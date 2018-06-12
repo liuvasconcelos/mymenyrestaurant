@@ -16,6 +16,11 @@ class SeeReservationController extends TableStatusAbstractController
         return view('reservation\seereservations');
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function goBack()
     {
         return $this->updateTables();

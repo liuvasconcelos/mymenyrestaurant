@@ -24,6 +24,11 @@ class AddItensController extends TableAbstractController
         return view('tablescontrol\additem');
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function addProductToOrder(Request $request, $idTable)
     {
         $this->quantitySelected = $request->quantity;

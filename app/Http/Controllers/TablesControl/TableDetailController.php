@@ -19,6 +19,11 @@ class TableDetailController extends TableAbstractController
         return view('tablescontrol\tabledetail');
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function addItemDrink($id)
     {
         $this->registerItens();

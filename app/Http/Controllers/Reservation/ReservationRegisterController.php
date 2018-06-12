@@ -7,6 +7,7 @@ use App\Models\Reservation;
 use App\Models\Table;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 
 class ReservationRegisterController extends TableStatusAbstractController
@@ -16,13 +17,14 @@ class ReservationRegisterController extends TableStatusAbstractController
         return view('reservation\makeareservation');
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function reserveTable(Request $request)
     {
-//        $this->validate($request, [
-//            'clientName' => 'required',
-//            'celPhone' => 'required|max:11|min:10|integer',
-//            'hour' => 'required|integer',
-//        ]);
+
         Reservation::create(['id_table' => $request->table,
             'client_name' => $request->clientName,
             'client_phone' => $request->celPhone,
@@ -33,6 +35,15 @@ class ReservationRegisterController extends TableStatusAbstractController
         Table::where('id_table', $request->table)->update(['status' => 2]);
 
         return $this->updateTables();
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'clientName' => 'required',
+            'celPhone' => 'required',
+            'hour' => 'required',
+        ]);
     }
 
 }

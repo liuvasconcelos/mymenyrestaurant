@@ -14,6 +14,11 @@ class FinalizeTableController extends TableStatusAbstractController
         return view('tablescontrol\finalizetable');
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function addCouvert($idTable)
     {
         return view('tablescontrol/addcouvert')->with(['tableId'=> $idTable]);

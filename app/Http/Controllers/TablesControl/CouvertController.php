@@ -16,6 +16,11 @@ use App\Http\Controllers\Controller;
 
 class CouvertController extends TableAbstractController
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function addCouvert($idTable)
     {
         $order = Order::where('table_number', $idTable)->first();
